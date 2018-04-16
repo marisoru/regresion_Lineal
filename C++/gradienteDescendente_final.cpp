@@ -1,12 +1,10 @@
 #include <math.h>
-#include <time.h>
 #include <stdlib.h>
 #include <sstream>
 #include <string>
 #include <fstream>
 #include <iostream>
 #include <vector>
-#include <iostream>
 #ifdef WIN32
     #include <windows.h>
 #else
@@ -21,7 +19,7 @@ void sleepcp(int milliseconds);
 double h_theta(double theta0, double theta1, double x);
 
 int main() {
-	//Declaración de varibles
+	//Declaración de variables
 	double xNum, yNum, alpha, hNum, temp0, temp1;
 	string line;
 	vector<double> xValues;
@@ -85,6 +83,12 @@ int main() {
 	//Se inician en 0's
 	vector<double> theta (2,0);
 	
+	//Mensaje de inicio
+	cout << "***********************************" <<endl;
+	cout << "*   Regresion Lineal mediante     *"<<endl;
+	cout << "*     Descenso del gradiente      *" <<endl;
+	cout << "***********************************" <<endl;
+	cout << endl;
 	//Valor de alpha asignado
 	//alpha = 0.07;
 	//Valor de alpha ingresado por el usuario
@@ -119,6 +123,7 @@ int main() {
 			grad.at(1) = grad.at(1) + temp1;
 		}
 		
+		//grad = sum(h - y)/m
 		grad.at(0) = grad.at(0)/m;
 		grad.at(1) = grad.at(1)/m;
 		
@@ -126,9 +131,11 @@ int main() {
 		theta.at(0) = theta.at(0) - alpha * grad.at(0);
 		theta.at(1) = theta.at(1) - alpha * grad.at(1);
 		
+		//Vectores con todos los valores de theta calculados.
 		theta_0_ToPrint.push_back(theta.at(0));
 		theta_1_ToPrint.push_back(theta.at(1));
 		
+		//Disminuye iter
 		max_iter--;
 	}
 	
@@ -154,22 +161,26 @@ int main() {
     //Calcular los valores de la función de costo
     vector <double> t (2,0); 
     
+    //Vector que guardará los valores de h - y
     vector<double> h_y;    
+    //variables para acumular la sumatoria de (h - y)
     double sum_hy = 0;
-    vector<double> hfinal;    
 	
+	//Dos ciclos for para llenar la matriz
     for ( int i = 0; i < Theta_0.size(); i++ ){
     	for ( int j = 0; j < Theta_1.size(); j++){
+    		//Tomar los valores de theta uno a uno
+			//Primero varía Theta_0 luego Theta_1
     		t.at(0) = Theta_0.at(i);
     		t.at(1) = Theta_1.at(j);
-    		
-    		hfinal = h;
+    		//Calculo de los valores en h
+    		// h = Theta_0 + Theta_1 * x
 			h.clear();
             for (int s = 0; s < xValues.size(); s++){
     			hNum = onesVector.at(s) * t.at(0) + xValues.at(s) * t.at(1); 
 				h.push_back(hNum);
 			}
-			
+			//Sumatoria de (h - y)^2
 			sum_hy = 0;
 			h_y.clear();
 			for (int k = 0 ; k < yValues.size(); k++){
@@ -177,11 +188,10 @@ int main() {
   				h_y.at(k) = pow( h_y.at(k), 2 );
    				sum_hy = sum_hy + h_y.at(k);
 			}
-			
 			//J = (1/2M)*(Theta*X-Y)'*(Theta*X-Y);
 			J_vals[i][j] = sum_hy / ( 2 * m );
+			//Vector que contiene todos los valores hallados
 			J_valsToPrint.push_back(J_vals[i][j]);
-            
 		}
 	}
 	
