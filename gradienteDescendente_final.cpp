@@ -240,17 +240,17 @@ int main() {
 	   fclose(toPlot);
 	   system("gnuplot \"toPlot.dat\"");
 
-fprintf(archivo,"reset\n");                              /// escribe en el archivo el texto correspondiente
-	fprintf(archivo,"set term gif animate\n");               /// escribe en el archivo el texto correspondiente
-    fprintf(archivo,"set terminal gif animate delay 50\n");  /// escribe en el archivo el texto correspondiente
-    fprintf(archivo,"set output \"final.gif\"\n");         /// escribe en el archivo el texto correspondiente
-    fprintf(archivo,"n = 20\ni = 0\n");                      /// escribe en el archivo el texto correspondiente
-    fprintf(archivo,"load \"toPlot.dat\"\n");               /// escribe en el archivo el texto correspondiente
-    fprintf(archivo,"set output\n");                         /// escribe en el archivo el texto correspondiente
-    fclose(archivo);                                         /// cierre del archivo de salida
- 	system("gnuplot \"creategif.dat\"");  /// guarda la grafica en un archivo .gif
+       fprintf(archivo,"reset\n");                              /// escribe en el archivo el texto correspondiente
+   	   fprintf(archivo,"set term gif animate\n");               /// escribe en el archivo el texto correspondiente
+       fprintf(archivo,"set terminal gif animate delay 50\n");  /// escribe en el archivo el texto correspondiente
+       fprintf(archivo,"set output \"final.gif\"\n");         /// escribe en el archivo el texto correspondiente
+       fprintf(archivo,"n = 20\ni = 0\n");                      /// escribe en el archivo el texto correspondiente
+       fprintf(archivo,"load \"toPlot.dat\"\n");               /// escribe en el archivo el texto correspondiente
+       fprintf(archivo,"set output\n");                         /// escribe en el archivo el texto correspondiente
+       fclose(archivo);                                         /// cierre del archivo de salida
+ 	   system("gnuplot \"creategif.dat\"");  /// guarda la grafica en un archivo .gif
    	  
-//Escribir el archivo para ver J
+       //Escribir el archivo para ver J
 	   fprintf(toPlotJ, "set title 'Grafica de J'\n");
 	   fprintf(toPlotJ, "set xlabel 'Theta_0'\n");
 	   fprintf(toPlotJ, "set ylabel 'Theta_1'\n");
@@ -261,15 +261,15 @@ fprintf(archivo,"reset\n");                              /// escribe en el archi
 	   fclose(toPlotJ);
 	   system("gnuplot \"toPlotJ.dat\"");
 
-fprintf(archivo,"reset\n");                              /// escribe en el archivo el texto correspondiente
-	fprintf(archivo,"set term gif animate\n");               /// escribe en el archivo el texto correspondiente
-    fprintf(archivo1,"set terminal gif animate delay 50\n");  /// escribe en el archivo el texto correspondiente
-    fprintf(archivo1,"set output \"jota.gif\"\n");         /// escribe en el archivo el texto correspondiente
-    fprintf(archivo1,"n = 20\ni = 0\n");                      /// escribe en el archivo el texto correspondiente
-    fprintf(archivo1,"load \"toPlotJ.dat\"\n");               /// escribe en el archivo el texto correspondiente
-    fprintf(archivo1,"set output\n");                         /// escribe en el archivo el texto correspondiente
-    fclose(archivo1);                                         /// cierre del archivo de salida
- 	system("gnuplot \"creategif1.dat\"");  /// guarda la grafica en un archivo .gif
+       fprintf(archivo,"reset\n");                              /// escribe en el archivo el texto correspondiente
+	   fprintf(archivo,"set term gif animate\n");               /// escribe en el archivo el texto correspondiente
+       fprintf(archivo1,"set terminal gif animate delay 50\n");  /// escribe en el archivo el texto correspondiente
+       fprintf(archivo1,"set output \"jota.gif\"\n");         /// escribe en el archivo el texto correspondiente
+       fprintf(archivo1,"n = 20\ni = 0\n");                      /// escribe en el archivo el texto correspondiente
+       fprintf(archivo1,"load \"toPlotJ.dat\"\n");               /// escribe en el archivo el texto correspondiente
+       fprintf(archivo1,"set output\n");                         /// escribe en el archivo el texto correspondiente
+       fclose(archivo1);                                         /// cierre del archivo de salida
+ 	   system("gnuplot \"creategif1.dat\"");  /// guarda la grafica en un archivo .gif
 
 	   
 	}else{
@@ -287,16 +287,16 @@ fprintf(archivo,"reset\n");                              /// escribe en el archi
 	   fclose(toPlot);
 	   system("gnuplot \"toPlot.dat\"");
 
-	//GIF para ver todas las iteraciones
-	fprintf(archivo,"reset\n");                              /// escribe en el archivo el texto correspondiente
-	fprintf(archivo,"set term gif animate\n");               /// escribe en el archivo el texto correspondiente
-    fprintf(archivo,"set terminal gif animate delay 50\n");  /// escribe en el archivo el texto correspondiente
-    fprintf(archivo,"set output \"itearciones.gif\"\n");         /// escribe en el archivo el texto correspondiente
-    fprintf(archivo,"n = 20\ni = 0\n");                      /// escribe en el archivo el texto correspondiente
-    fprintf(archivo,"load \"toPlot.dat\"\n");               /// escribe en el archivo el texto correspondiente
-    fprintf(archivo,"set output\n");                         /// escribe en el archivo el texto correspondiente
-    fclose(archivo);                                         /// cierre del archivo de salida
- 	system("gnuplot \"creategif.dat\"");  /// guarda la grafica en un archivo .gif
+	   //GIF para ver todas las iteraciones
+	   fprintf(archivo,"reset\n");                              /// escribe en el archivo el texto correspondiente
+	   fprintf(archivo,"set term gif animate\n");               /// escribe en el archivo el texto correspondiente
+       fprintf(archivo,"set terminal gif animate delay 50\n");  /// escribe en el archivo el texto correspondiente
+       fprintf(archivo,"set output \"itearciones.gif\"\n");         /// escribe en el archivo el texto correspondiente
+       fprintf(archivo,"n = 20\ni = 0\n");                      /// escribe en el archivo el texto correspondiente
+       fprintf(archivo,"load \"toPlot.dat\"\n");               /// escribe en el archivo el texto correspondiente
+       fprintf(archivo,"set output\n");                         /// escribe en el archivo el texto correspondiente
+       fclose(archivo);                                         /// cierre del archivo de salida
+ 	   system("gnuplot \"creategif.dat\"");  /// guarda la grafica en un archivo .gif
 	}	
  	
 }
